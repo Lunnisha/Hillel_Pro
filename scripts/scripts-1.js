@@ -1,69 +1,143 @@
-const userName = prompt("Яке Ваше імʼя?");
+const sum = 0.1 + 0.2;
 
-const userSurname = prompt("Яке Ваше прізвище?");
+console.log(+sum.toFixed(2));
 
-const userFavoriteNumber = +prompt("Яке Ваше улюблене число?");
+const login = prompt("Введіть логін користувача");
 
-alert(`Вітаю, ${userName} ${userSurname}! Ваше улюблене число - ${userFavoriteNumber}`);
+const password = prompt("Введіть пароль користувача");
 
-console.log(`Вітаю, ${userName} ${userSurname}! Ваше улюблене число - ${userFavoriteNumber}`);
+localStorage.setItem("login", login);
 
-const firstClientNumber = +prompt("Введіть перше число");
+localStorage.setItem("password", password);
 
-const secondClientNumber = +prompt("Введіть друге число");
+console.log(`логін - ${login}, пароль - ${password}`);
 
-const addition = (firstClientNumber + secondClientNumber);
+"use strict";
 
-const subtraction = (firstClientNumber - secondClientNumber);
+let userAdmin;
 
-const multiplication = (firstClientNumber * secondClientNumber);
+let pass;
 
-const division = (firstClientNumber / secondClientNumber);
+const admisLogin = "admin";
 
-alert(`Сума - ${addition}, різниця - ${subtraction}, добуток - ${multiplication}, ділення - ${division}`);
+const admisPass = "12pass33210";
 
-console.log(`Сума - ${addition}, різниця - ${subtraction}, добуток - ${multiplication}, ділення - ${division}`);
+do {
+  userAdmin = prompt("Введіть логін для надання доступу Admin");
 
-const userAgeQuestion = +prompt("В якому році Ви народились");
+  if (userAdmin === admisLogin) {
 
-let howOldIsTheUser;
+    console.log('успіх');
 
-const dataNow = 2022;
+    break;
 
-const userAgeResult = (2022 - userAgeQuestion);
+  } else if (userAdmin == "" || userAdmin == null) {
 
-if (userAgeResult >= 18) howOldIsTheUser = "Вітаю, Ви - дорослий/а, можете пити пиво :)";
+    console.log('невірний пароль або логін');
 
-else if (userAgeResult >= 16) howOldIsTheUser = "Вітаю, Ви - підліток, можете пити лимонад :)";
+    break;
 
-else if (userAgeResult <= 15) howOldIsTheUser = "Вітаю, Ви - дитина, можете пити те, що дозволять батьки :)";
+  } else {
 
-alert(`Ваш вік - ${userAgeResult} років. ${howOldIsTheUser}`);
+    console.log("користувач немає доступу до admin-панелі");
 
-console.log(`Ваш вік - ${userAgeResult} років. ${howOldIsTheUser}`);
+    break;
+  }
+} while (userAdmin == "" || 1);
 
-// Остача від ділення
+do {
 
-const firstNumberOfDivisions = 20;
+  pass = prompt("Введіть пароль для надання доступу Admin");
 
-const secondNumberOfDivisions = 3;
+  if (pass === admisPass) {
 
-const resultOfDivisions = (firstNumberOfDivisions % secondNumberOfDivisions);
+    console.log("успіх");
+    
+    break;
 
-alert(`Остача від ділення числа ${firstNumberOfDivisions} на число ${secondNumberOfDivisions} рівна ${resultOfDivisions}`);
+  } else if (pass == "" || pass == null) {
 
-console.log(`Остача від ділення числа ${firstNumberOfDivisions} на число ${secondNumberOfDivisions} рівна ${resultOfDivisions}.`);
+    console.log('невірний пароль або логін');
 
-// Парне чи непарне число
+    break;
+  }
+  else {
 
-const anyNumber = prompt("Введіть будь-яке число для визначення парності");
+    console.log('нористувач немає доступу до admin-панелі');
 
-let evenOrOddNumber;
+    break;
 
-if (anyNumber % 2 === 0) evenOrOddNumbers = "число парне";
+  }
+} while (pass == "" || 1);
 
-else if (anyNumber % 2 > 0) evenOrOddNumbers = "число непарне";
+const watermelon = "Кавун";
 
-alert(`${anyNumber} ${evenOrOddNumbers}`);
+const carrot = "Морква";
 
-console.log(`${anyNumber} ${evenOrOddNumbers}`);
+const potato = "Картопля";
+
+const strawberries = "Полуниця";
+
+console.log(`${watermelon}: 21 грн, ${carrot}: 8 грн, ${potato}: 12 грн, ${strawberries}: 150 грн`);
+
+const wantToBuy = prompt("Що хочете купити?");
+
+console.log(`Клієнт хоче купити: ${wantToBuy}`)
+
+const priceCarrot = 8;
+
+const pricePotato = 12;
+
+const priceStrawberries = 150;
+
+const priceWatermelon = 21;
+
+const clientsMoney = prompt("Скільки маєте грошей на рахунку?");
+
+localStorage.setItem("clientsMoney", clientsMoney);
+
+console.log(`${clientsMoney} грн - стільки грошей у клієнта`);
+
+const howManyWatermelons = prompt("Скільки хочете придбати кавунів?");
+
+const resultOfShoppin = (clientsMoney - (priceWatermelon * howManyWatermelons));
+
+if (clientsMoney > 50) {
+
+  alert(`За ${clientsMoney} грн. Ви придбали ${howManyWatermelons} шт даного продукту. У Вас залишиться ${resultOfShoppin} грн`);
+
+} else if (clientsMoney < 8) {
+
+  alert(`На жаль, у вас недостатньо коштів для купівлі хоча б 1шт. будь-якого продукту`);
+
+} else if (clientsMoney < 21) {
+
+  alert(`У вас недостатньо коштів для купівлі хоча б 1шт ${watermelon} `);
+}
+
+// Трикутник
+
+const side_A = prompt("Укажіть сторону А трикутника");
+
+const side_B = prompt("Укажіть сторону В трикутника")
+
+const side_C = prompt("Укажіть сторону С трикутника")
+
+if (side_A * side_A + side_B * side_B >= side_C * side_C) {
+
+  alert("Трикутник існує");
+
+} else {
+
+  alert("Трикутник не існує");
+}
+
+// Приклади
+
+2 && 0 && 3 || true && false // false
+
+false || "" || 3 && true // true
+
+1 && 1000 && '0' || 0 && 'Bob' // '0'
+
+- 1 || 0 || 0 && "" || 1010 // 1010
