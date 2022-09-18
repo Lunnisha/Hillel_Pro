@@ -71,7 +71,7 @@ do {
 
     console.log(`${num} нeпарне число `);
 
-  if (num >= 0) {
+  if (num >= 0 ) {
 
     console.log(`${num} плюсове число`);
 
