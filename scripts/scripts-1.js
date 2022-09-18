@@ -1,143 +1,90 @@
-const sum = 0.1 + 0.2;
+for (let i = 10; i < 26; i += 0.5) {
 
-console.log(+sum.toFixed(2));
+  console.log(i);
+}
 
-const login = prompt("Введіть логін користувача");
+const number = +prompt("Введіть число"); {
 
-const password = prompt("Введіть пароль користувача");
+  if (number % 2 !== 0 && number % 3 !== 0) {
 
-localStorage.setItem("login", login);
-
-localStorage.setItem("password", password);
-
-console.log(`логін - ${login}, пароль - ${password}`);
-
-"use strict";
-
-let userAdmin;
-
-let pass;
-
-const admisLogin = "admin";
-
-const admisPass = "12pass33210";
-
-do {
-  userAdmin = prompt("Введіть логін для надання доступу Admin");
-
-  if (userAdmin === admisLogin) {
-
-    console.log('успіх');
-
-    break;
-
-  } else if (userAdmin == "" || userAdmin == null) {
-
-    console.log('невірний пароль або логін');
-
-    break;
-
-  } else {
-
-    console.log("користувач немає доступу до admin-панелі");
-
-    break;
+    console.log(`${number} просте число`);
   }
-} while (userAdmin == "" || 1);
 
-do {
-
-  pass = prompt("Введіть пароль для надання доступу Admin");
-
-  if (pass === admisPass) {
-
-    console.log("успіх");
-    
-    break;
-
-  } else if (pass == "" || pass == null) {
-
-    console.log('невірний пароль або логін');
-
-    break;
-  }
   else {
-
-    console.log('нористувач немає доступу до admin-панелі');
-
-    break;
-
+    console.log(`${number} складене число`);
   }
-} while (pass == "" || 1);
-
-const watermelon = "Кавун";
-
-const carrot = "Морква";
-
-const potato = "Картопля";
-
-const strawberries = "Полуниця";
-
-console.log(`${watermelon}: 21 грн, ${carrot}: 8 грн, ${potato}: 12 грн, ${strawberries}: 150 грн`);
-
-const wantToBuy = prompt("Що хочете купити?");
-
-console.log(`Клієнт хоче купити: ${wantToBuy}`)
-
-const priceCarrot = 8;
-
-const pricePotato = 12;
-
-const priceStrawberries = 150;
-
-const priceWatermelon = 21;
-
-const clientsMoney = prompt("Скільки маєте грошей на рахунку?");
-
-localStorage.setItem("clientsMoney", clientsMoney);
-
-console.log(`${clientsMoney} грн - стільки грошей у клієнта`);
-
-const howManyWatermelons = prompt("Скільки хочете придбати кавунів?");
-
-const resultOfShoppin = (clientsMoney - (priceWatermelon * howManyWatermelons));
-
-if (clientsMoney > 50) {
-
-  alert(`За ${clientsMoney} грн. Ви придбали ${howManyWatermelons} шт даного продукту. У Вас залишиться ${resultOfShoppin} грн`);
-
-} else if (clientsMoney < 8) {
-
-  alert(`На жаль, у вас недостатньо коштів для купівлі хоча б 1шт. будь-якого продукту`);
-
-} else if (clientsMoney < 21) {
-
-  alert(`У вас недостатньо коштів для купівлі хоча б 1шт ${watermelon} `);
 }
 
-// Трикутник
+localStorage.setItem("number", number);
 
-const side_A = prompt("Укажіть сторону А трикутника");
+discount = +prompt("Сума вашої покупки становить:");
 
-const side_B = prompt("Укажіть сторону В трикутника")
+if (discount <= 100) {
 
-const side_C = prompt("Укажіть сторону С трикутника")
-
-if (side_A * side_A + side_B * side_B >= side_C * side_C) {
-
-  alert("Трикутник існує");
-
-} else {
-
-  alert("Трикутник не існує");
+  alert(`Вітаю, ваша знижка 3%!`);
 }
 
-// Приклади
+else if (discount <= 200) {
 
-2 && 0 && 3 || true && false // false
+  alert(`Вітаю, ваша знижка 5%!`);
+}
 
-false || "" || 3 && true // true
+else if (discount > 200) {
 
-1 && 1000 && '0' || 0 && 'Bob' // '0'
+  alert(`Вітаю, ваша знижка 7%!`);
+}
 
-- 1 || 0 || 0 && "" || 1010 // 1010
+localStorage.setItem("discount", discount);
+
+//таблиця множення
+
+for (i = 1; i <= 10; i++) {
+
+  console.log(`Множимо на "${i}"`);
+
+  for (j = 1; j <= 10; j++) {
+
+    console.log(`${i} * ${j} = ${i * j}`);
+  }
+}
+
+const oneDollar = 36.76;
+
+for (let i = 10; i <= 100; i += 10) {
+
+  console.log(`${i} USD = ${oneDollar * i} UAH`);
+
+  // console.log(`${i} USD = ${Math.round(oneDollar) * i} UAH`); Тут я округлила до найближчого цілого і вийшли гарні числа:)
+}
+
+/* із завданням №7 у мене вийшла серйозна запара, на жаль... Я ніяк не можу додуматись, щоб гарно згребсти усі цифри і розкласти іх у консольці*/
+
+
+do {
+  num = prompt("Введіть число", 0);
+
+  if (num % 2 === 0) {
+
+    console.log(`${num} парне число`);
+
+  } else
+
+    console.log(`${num} нeпарне число `);
+
+  if (num >= 0) {
+
+    console.log(`${num} плюсове число`);
+
+  } else
+
+    console.log(`${num} мінусове число`);
+
+  if (num % 10 === 0) {
+
+    console.log(`${num} число з нулем`);
+
+  } else
+
+    console.log(`${num} число без нулів`);
+
+} while (num != null);
