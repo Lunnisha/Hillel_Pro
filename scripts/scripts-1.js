@@ -1,90 +1,171 @@
-for (let i = 10; i < 26; i += 0.5) {
+function getMinNumberFromParams(numb_1, numb_2, numb_3, numb_4) {
 
-  console.log(i);
-}
+  const minimalNumber = Math.min(numb_1, numb_2, numb_3, numb_4);
 
-const number = +prompt("Введіть число"); {
+  if (numb_1 === undefined || numb_2 === undefined || numb_3 === undefined || numb_4 === undefined) {
 
-  if (number % 2 !== 0 && number % 3 !== 0) {
+    return 'Undefined value!';
 
-    console.log(`${number} просте число`);
+  } else if (numb_1 === '' || numb_2 === '' || numb_3 === '' || numb_4 === '') {
+
+    return 'Your value is empty';
+
+  } else if (isNaN(minimalNumber)) {
+
+    return 'Your value is not a number!';
+
+  }
+
+  else
+
+    return minimalNumber;
+
+};
+
+function greatestСommonDivisor(numb_1, numb_2) {
+
+  const remainder = numb_1 % numb_2;
+
+  if (numb_2 === undefined || numb_1 === undefined) {
+
+    return 'Undefined value!';
+
+  } else if (isNaN(numb_2) || isNaN(numb_1)) {
+
+    return 'Your value is not a number!';
+
+  } else if (numb_2 !== 0) {
+
+    return greatestСommonDivisor(numb_2, remainder);
+  }
+
+  return numb_1;
+};
+
+function perfectNumber(numb) {
+
+  let sum = 0;
+
+  for (i = 1; i <= numb / 2; i++) {
+
+    if (numb % i === 0) {
+
+      sum += i;
+
+    }
+
+  }
+
+  if (sum === numb && sum !== 0) {
+
+    return 'Your number is perfect';
+
+  } else if (numb == null) {
+
+    return 'Your value is empty';
+
+  } else if (numb === undefined || numb === "") {
+
+    return 'Undefined value!';
+
+  } else if (isNaN(numb)) {
+
+    return 'Your value is not a number!';
+
+  } else if (numb < 0) {
+
+    return 'Wrong! Negative value';
+
   }
 
   else {
-    console.log(`${number} складене число`);
+
+    return 'Your number is not perfect';
+
   }
-}
 
-localStorage.setItem("number", number);
+};
 
-discount = +prompt("Сума вашої покупки становить:");
+function sumFromOneNumberToTwo(numb_1, numb_2) {
 
-if (discount <= 100) {
+  let sum1 = 0;
 
-  alert(`Вітаю, ваша знижка 3%!`);
-}
+  let sum2 = 0;
 
-else if (discount <= 200) {
+  for (let i = numb_1; i <= numb_2; i++) {
 
-  alert(`Вітаю, ваша знижка 5%!`);
-}
+    sum1 += i;
 
-else if (discount > 200) {
-
-  alert(`Вітаю, ваша знижка 7%!`);
-}
-
-localStorage.setItem("discount", discount);
-
-//таблиця множення
-
-for (i = 1; i <= 10; i++) {
-
-  console.log(`Множимо на "${i}"`);
-
-  for (j = 1; j <= 10; j++) {
-
-    console.log(`${i} * ${j} = ${i * j}`);
   }
+
+  for (let j = numb_2; j <= numb_1; j++) {
+
+    sum2 += j;
+  }
+
+  if (numb_1 == null || numb_2 == null) {
+
+    return 'Your value is empty';
+
+  } else if (numb_1 < numb_2) {
+
+    return sum1;
+
+  } else if (numb_2 < numb_1) {
+
+    return sum2;
+
+  } else if (numb_1 === undefined || numb_2 || undefined) {
+
+    return 'Undefined value!';
+
+  } else if (isNaN(sumFromOneNumberToTwo)) {
+
+    return 'Your value is not a number!';
+
+  }
+
+};
+
+function convertToF(celsius) {
+
+  const fahrenheit = celsius * 9 / 5 + 32;
+
+  if (fahrenheit > celsius && celsius !== '') {
+
+    return `${Math.round(fahrenheit)}\xB0F`;
+
+  } else if (celsius == null) {
+
+    return 'Your value is empty';
+
+  } else if (isNaN(convertToF)) {
+
+    return 'Your value is not a number!';
+
+  }
+
+};
+
+function getRandomNumber(min, max) {
+
+  const randomNumberWithMath = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  if (randomNumberWithMath >= 0 && randomNumberWithMath !== '') {
+
+    return randomNumberWithMath;
+
+  } else if (min == "" || max == "") {
+
+    return 'Your value is undefind!';
+
+  } else if (isNaN(getRandomNumber)) {
+
+    return 'Your value is not a number!';
+
+  }
+
 }
 
-const oneDollar = 36.76;
+getRandomNumber(0, 40);
 
-for (let i = 10; i <= 100; i += 10) {
-
-  console.log(`${i} USD = ${oneDollar * i} UAH`);
-
-  // console.log(`${i} USD = ${Math.round(oneDollar) * i} UAH`); Тут я округлила до найближчого цілого і вийшли гарні числа:)
-}
-
-/* із завданням №7 у мене вийшла серйозна запара, на жаль... Я ніяк не можу додуматись, щоб гарно згребсти усі цифри і розкласти іх у консольці*/
-
-
-do {
-  num = prompt("Введіть число", 0);
-
-  if (num % 2 === 0) {
-
-    console.log(`${num} парне число`);
-
-  } else
-
-    console.log(`${num} нeпарне число `);
-
-  if (num >= 0 ) {
-
-    console.log(`${num} плюсове число`);
-
-  } else
-
-    console.log(`${num} мінусове число`);
-
-  if (num % 10 === 0) {
-
-    console.log(`${num} число з нулем`);
-
-  } else
-
-    console.log(`${num} число без нулів`);
-
-} while (num != null);
