@@ -1,143 +1,144 @@
-const sum = 0.1 + 0.2;
+// Cтворити функцію, яка створює та реєструє нову команду у автопробізі. Під час виклику функції потрібно передати дані про команду - назва команди, ім'я водія, рік народження водія, марка автомобіля, спонсор команди та чи водій допущений до автопробігу
+
+// const driversTeam = {
+//   teamName: "Starplatinum",
+//   driversName: "Jotaro",
+//   driversBirthday: "11.01.20",
+//   carBrand: "Koenigsegg One:1",
+//   teamSponsor: "Speedwagon",
+//   admission: true,
+// };
+
+// Запитати дані (через prompt та циклічно) про нового користувача у системі та зберегти його в об'єкт. Дані про користувача - логін, пароль, місто, країна, стать, вік
+
+// const newUser = {
+//   login: prompt("Your login"),
+//   pass: prompt("Your password"),
+//   city: prompt("Your city"),
+//   country: prompt("Your country"),
+//   sex: prompt("Your sex"),
+//   age: prompt("Your age"),
+// };
+
+// console.log(newUser);
+
+// Створити функцію, яка буде міняти дані в конкретного користувача створеного пунктом вище. Наприклад сhangeUserData(user_1, city, 'Kherson). Де user_1 - обʼєкт в якому буде мінятись, city - поле, яке буде мінятися на нове значення - 'Kherson'
+
+// const сhangeUserData = Object.assign({}, newUser, {
+//   city: 'Kherson'
+// });
 
-console.log(+sum.toFixed(2));
+// console.log(сhangeUserData);
 
-const login = prompt("Введіть логін користувача");
+// Створити об'єкт cтудента - name, surname, age, course, city, greeting, addHomework. greeting - метод, котрий виводить повідомлення через console.log('Hi. everyone!'). addHomework - метод, котрий виводить повідомлення через console.log('Sending my howework... Please, wait')
 
-const password = prompt("Введіть пароль користувача");
+// const studentData = {
+//   name: 'Jotaro',
+//   surname: 'Kujo',
+//   age: 22,
+//   course: 4,
+//   city: 'Lviv',
+//   greeting: function () {
+//     console.log('Hi. everyone! I am' + ' ' + this.name + ' ' + this.surname + '.');
+//   },
+//   addHomework: function () {
+//     console.log('Sending my howework... Please, wait' + '.');
+//   }
+// };
 
-localStorage.setItem("login", login);
+// studentData.greeting();
 
-localStorage.setItem("password", password);
+// studentData.addHomework();
 
-console.log(`логін - ${login}, пароль - ${password}`);
+// Cтворити функцію isEmpty, яка повертає true, якщо об’єкт не має властивостей (порожній), інакше false.
 
-"use strict";
+// function isEmpty(str) {
+//   if (typeof str === "undefined" || str === null || str === "") {
+//     return true;
+//   }
+//   else
+//     return false;
+// };
 
-let userAdmin;
+// Створити об’єкт для зберігання виручки команди продавців, наприклад: {Taras: 2000, Marta: 10 Ivan: 1200, Petro: 400, Roma: 366, Alina: 829}
 
-let pass;
+// const sellers = {
+//   Taras: 2000,
+//   Marta: 10,
+//   Ivan: 1200,
+//   Petro: 400,
+//   Roma: 366,
+//   Alina: 829,
+// };
 
-const admisLogin = "admin";
+// Створити фукнцію, яка працює з цим обʼєктом та обчислює суму всіх виручок та виводить результат через сonsole.log
 
-const admisPass = "12pass33210";
+// let sum = 0;
+// for (let key in sellers) {
+//   sum += sellers[key];
+// };
 
-do {
-  userAdmin = prompt("Введіть логін для надання доступу Admin");
+// console.log('Sum of all proceeds -' + ' ' + ' ' + sum + ' ' + 'grn' + '.');
 
-  if (userAdmin === admisLogin) {
+// Створити фукнцію, яка працює з цим обʼєктом та яка знаходить продавця з найменшою виручкою та виводить результат через сonsole.log у зрозумілому форматі
 
-    console.log('успіх');
+// function minProfit(sellers) {
+//   let lovest;
+//   for (const key in sellers) {
+//     if (!lovest || sellers[key] < sellers[lovest]) {
+//       lovest = key;
+//     }
+//   }
+//   return lovest;
+// };
 
-    break;
+// console.log(minProfit(sellers) + ' ' + 'has the lovest sales profit!');
 
-  } else if (userAdmin == "" || userAdmin == null) {
+// Створити фукнцію, яка знаходить продавця з найбільшою виручкою та виводить результат через сonsole.log у зрозумілому форматі
 
-    console.log('невірний пароль або логін');
+// function maxProfit(sellers) {
+//   let largest;
+//   for (let key in sellers) {
+//     if (!largest || sellers[key] > sellers[largest]) {
+//       largest = key;
+//     }
+//   }
+//   return largest;
+// };
 
-    break;
+// console.log(maxProfit(sellers) + ' ' + 'has the biggest sales profit!');
 
-  } else {
+// Створити фукнцію, яка випадковим чином вибирає продавця місяця та виводить привітання цьому працівнику через сonsole.log у зрозумілому форматі
 
-    console.log("користувач немає доступу до admin-панелі");
+// function randEement(sellers) {
+//   let result;
+//   let count = 0;
+//   for (let key in sellers)
+//     if (Math.random() < 1 / ++count)
+//       result = key;
+//   return result;
+// };
 
-    break;
-  }
-} while (userAdmin == "" || 1);
+// console.log('Hi,' + ' ' + randEement(sellers) + '!');
 
-do {
 
-  pass = prompt("Введіть пароль для надання доступу Admin");
 
-  if (pass === admisPass) {
 
-    console.log("успіх");
-    
-    break;
 
-  } else if (pass == "" || pass == null) {
 
-    console.log('невірний пароль або логін');
 
-    break;
-  }
-  else {
 
-    console.log('нористувач немає доступу до admin-панелі');
 
-    break;
 
-  }
-} while (pass == "" || 1);
 
-const watermelon = "Кавун";
 
-const carrot = "Морква";
 
-const potato = "Картопля";
 
-const strawberries = "Полуниця";
 
-console.log(`${watermelon}: 21 грн, ${carrot}: 8 грн, ${potato}: 12 грн, ${strawberries}: 150 грн`);
 
-const wantToBuy = prompt("Що хочете купити?");
 
-console.log(`Клієнт хоче купити: ${wantToBuy}`)
 
-const priceCarrot = 8;
 
-const pricePotato = 12;
 
-const priceStrawberries = 150;
 
-const priceWatermelon = 21;
 
-const clientsMoney = prompt("Скільки маєте грошей на рахунку?");
-
-localStorage.setItem("clientsMoney", clientsMoney);
-
-console.log(`${clientsMoney} грн - стільки грошей у клієнта`);
-
-const howManyWatermelons = prompt("Скільки хочете придбати кавунів?");
-
-const resultOfShoppin = (clientsMoney - (priceWatermelon * howManyWatermelons));
-
-if (clientsMoney > 50) {
-
-  alert(`За ${clientsMoney} грн. Ви придбали ${howManyWatermelons} шт даного продукту. У Вас залишиться ${resultOfShoppin} грн`);
-
-} else if (clientsMoney < 8) {
-
-  alert(`На жаль, у вас недостатньо коштів для купівлі хоча б 1шт. будь-якого продукту`);
-
-} else if (clientsMoney < 21) {
-
-  alert(`У вас недостатньо коштів для купівлі хоча б 1шт ${watermelon} `);
-}
-
-// Трикутник
-
-const side_A = prompt("Укажіть сторону А трикутника");
-
-const side_B = prompt("Укажіть сторону В трикутника")
-
-const side_C = prompt("Укажіть сторону С трикутника")
-
-if (side_A * side_A + side_B * side_B >= side_C * side_C) {
-
-  alert("Трикутник існує");
-
-} else {
-
-  alert("Трикутник не існує");
-}
-
-// Приклади
-
-2 && 0 && 3 || true && false // false
-
-false || "" || 3 && true // true
-
-1 && 1000 && '0' || 0 && 'Bob' // '0'
-
-- 1 || 0 || 0 && "" || 1010 // 1010
