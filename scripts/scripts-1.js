@@ -11,10 +11,6 @@ function Human(name, age, sex, nationality, country, countryWishList) {
   this.countryWishList = countryWishList;
 }
 
-function randomItem() {
-  return this.countryWishList[Math.floor(Math.random() * this.countryWishList.length)];
-}
-
 //Приклади
 
 const Kris = new Human ('Kris', 22, 'female', 'american', 'USA', 'Ukraine, Japan, Peru, Kenya, Island, Spain',)
