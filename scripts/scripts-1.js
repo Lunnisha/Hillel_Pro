@@ -1,144 +1,178 @@
-// Cтворити функцію, яка створює та реєструє нову команду у автопробізі. Під час виклику функції потрібно передати дані про команду - назва команди, ім'я водія, рік народження водія, марка автомобіля, спонсор команди та чи водій допущений до автопробігу
+// Створити функцію-конструктор Людини. Властивості, які будуть описувати екземпляр Людини - ім'я, вік, стать, національність, країна, список країн для подорожей. Створити універсальні функції - знайомство, прокидатися, засинати й список країн, які Людина хоче відвідати. Роботу цих функцій можна виводити через console.log. Але в кожній з функцій повинно використовуватись якомога більше характеристик конкретної Людини на якій ця функція викликається (підказка: тут треба використати call/apply)
 
-// const driversTeam = {
-//   teamName: "Starplatinum",
-//   driversName: "Jotaro",
-//   driversBirthday: "11.01.20",
-//   carBrand: "Koenigsegg One:1",
-//   teamSponsor: "Speedwagon",
-//   admission: true,
-// };
+//Шаблон
 
-// Запитати дані (через prompt та циклічно) про нового користувача у системі та зберегти його в об'єкт. Дані про користувача - логін, пароль, місто, країна, стать, вік
+function Human(name, age, sex, nationality, country, countryWishList) {
+  this.name = name;
+  this.age = age;
+  this.sex = sex;
+  this.nationality = nationality;
+  this.country = country;
+  this.countryWishList = countryWishList;
+}
 
-// const newUser = {
-//   login: prompt("Your login"),
-//   pass: prompt("Your password"),
-//   city: prompt("Your city"),
-//   country: prompt("Your country"),
-//   sex: prompt("Your sex"),
-//   age: prompt("Your age"),
-// };
+function randomItem() {
+  return this.countryWishList[Math.floor(Math.random() * this.countryWishList.length)];
+}
 
-// console.log(newUser);
+//Приклади
 
-// Створити функцію, яка буде міняти дані в конкретного користувача створеного пунктом вище. Наприклад сhangeUserData(user_1, city, 'Kherson). Де user_1 - обʼєкт в якому буде мінятись, city - поле, яке буде мінятися на нове значення - 'Kherson'
+const Kris = new Human ('Kris', 22, 'female', 'american', 'USA', 'Ukraine, Japan, Peru, Kenya, Island, Spain',)
+console.log(Kris);
 
-// const сhangeUserData = Object.assign({}, newUser, {
-//   city: 'Kherson'
-// });
+const Alberto = new Human ('Alberto', 15, 'male', 'italian', 'Italy', 'Prague, Mexico, Poland, Australia',)
+console.log(Alberto);
 
-// console.log(сhangeUserData);
+greeting = function () {
+  console.log(`Hello! My name is ${this.name}, i'm ${this.age} and I from ${this.country}. Nice to meet you!`)
+};
 
-// Створити об'єкт cтудента - name, surname, age, course, city, greeting, addHomework. greeting - метод, котрий виводить повідомлення через console.log('Hi. everyone!'). addHomework - метод, котрий виводить повідомлення через console.log('Sending my howework... Please, wait')
+wakeUp = function () {
+  console.log(`Hi, beautiful world, how cool to wake up so early!`)
+};
 
-// const studentData = {
-//   name: 'Jotaro',
-//   surname: 'Kujo',
-//   age: 22,
-//   course: 4,
-//   city: 'Lviv',
-//   greeting: function () {
-//     console.log('Hi. everyone! I am' + ' ' + this.name + ' ' + this.surname + '.');
-//   },
-//   addHomework: function () {
-//     console.log('Sending my howework... Please, wait' + '.');
-//   }
-// };
+sleep = function () {
+  console.log(`I'm so sleepy... Good night everyone!`)
+};
 
-// studentData.greeting();
+countryWishList = function () {
+  console.log(`I really want to visit such countries us: ${this.countryWishList}!`)
+};
 
-// studentData.addHomework();
+greeting.call(Kris);
 
-// Cтворити функцію isEmpty, яка повертає true, якщо об’єкт не має властивостей (порожній), інакше false.
+wakeUp.call(Alberto);
 
-// function isEmpty(str) {
-//   if (typeof str === "undefined" || str === null || str === "") {
-//     return true;
-//   }
-//   else
-//     return false;
-// };
+sleep.call(Kris);
 
-// Створити об’єкт для зберігання виручки команди продавців, наприклад: {Taras: 2000, Marta: 10 Ivan: 1200, Petro: 400, Roma: 366, Alina: 829}
+countryWishList.call(Kris);
 
-// const sellers = {
-//   Taras: 2000,
-//   Marta: 10,
-//   Ivan: 1200,
-//   Petro: 400,
-//   Roma: 366,
-//   Alina: 829,
-// };
+countryWishList.call(Alberto);
 
-// Створити фукнцію, яка працює з цим обʼєктом та обчислює суму всіх виручок та виводить результат через сonsole.log
+// Створити власну реалізацію методу .bind (підказка: в кінці треба помістити цю власну функцію у прототип - Function.prototype.myOwnBind = function () { [тут_код_кастомного_bind] }
 
-// let sum = 0;
-// for (let key in sellers) {
-//   sum += sellers[key];
-// };
+Function.prototype.myOwnBind = function (obj, args) {
+  const fn = this;
+  return function () {
+    fn.call(obj, args);
+  }
+};
+  
+const newClientToTheCamp = {
+  name: 'Tom', 
+  surname: 'Tompson',
+  age: 15,
+};
 
-// console.log('Sum of all proceeds -' + ' ' + ' ' + sum + ' ' + 'grn' + '.');
+const aboutClient = function (city, like,) {
+  console.log(`I'm ${this.name} ${this.surname}, my age ${this.age}. I'm from a big city - ${city}. I like: ${like}.`);
+};
 
-// Створити фукнцію, яка працює з цим обʼєктом та яка знаходить продавця з найменшою виручкою та виводить результат через сonsole.log у зрозумілому форматі
+const addInfo = aboutClient.bind(newClientToTheCamp, 'New York');
+addInfo ('animals, computer games, drawing');
 
-// function minProfit(sellers) {
-//   let lovest;
-//   for (const key in sellers) {
-//     if (!lovest || sellers[key] < sellers[lovest]) {
-//       lovest = key;
-//     }
-//   }
-//   return lovest;
-// };
+// Cтворити функцію, котра приймає 2 параметри - об'єкти. Функція повинна перевіряти чи ці 2 обʼєкти абсолютно ідентичні та повертає результат у зрозумілому форматі
 
-// console.log(minProfit(sellers) + ' ' + 'has the lovest sales profit!');
+const obj_1 = {
+  name: 'Milka',
+  surname: 'Boo',
+  age: 2,
+};
 
-// Створити фукнцію, яка знаходить продавця з найбільшою виручкою та виводить результат через сonsole.log у зрозумілому форматі
+const obj_2 = {
+  surname: 'Boo',
+  age: 2,
+  name: 'Milka',
+};
 
-// function maxProfit(sellers) {
-//   let largest;
-//   for (let key in sellers) {
-//     if (!largest || sellers[key] > sellers[largest]) {
-//       largest = key;
-//     }
-//   }
-//   return largest;
-// };
+function isEqual(obj_1, obj_2) {
+  const props1 = Object.getOwnPropertyNames(obj_1);
+  const props2 = Object.getOwnPropertyNames(obj_2);
 
-// console.log(maxProfit(sellers) + ' ' + 'has the biggest sales profit!');
+  if (props1.length !== props2.length) {
+    return false;
+  };
 
-// Створити фукнцію, яка випадковим чином вибирає продавця місяця та виводить привітання цьому працівнику через сonsole.log у зрозумілому форматі
+  for (let i = 0; i < props1.length; i += 1) {
+    const prop = props1[i];
 
-// function randEement(sellers) {
-//   let result;
-//   let count = 0;
-//   for (let key in sellers)
-//     if (Math.random() < 1 / ++count)
-//       result = key;
-//   return result;
-// };
+    if (obj_1[prop] !== obj_2[prop]) {
+      return false;
+    };
+  };
 
-// console.log('Hi,' + ' ' + randEement(sellers) + '!');
+  return true;
+};
 
+console.log(isEqual(obj_1, obj_2));
 
+// Створіть функцію-конструктор Calculator, який створює об’єкти з чотирма (або трьома) методами:
 
+function Calculator() {
+  
+  this.addiction = function(num1, num2) {
+    return num1+num2;
+  };
+  
+  this.multiplication = function(num1, num2) {
+    return num1*num2;
+  };
+  
+  this.division = function(num1, num2) {
+    return num1/num2;
+  };
+  
+  this.subtraction = function(num1, num2) {
+    return num1-num2;
+  };
+};
 
+const resalt = new Calculator();
 
+resalt.addiction(16, 4); 
+resalt.multiplication(9, 9);
+resalt.division(63, 7); 
+resalt.subtraction(100, 40); 
 
+// enterData - запитує два значення за допомогою prompt і запам’ятовує їх у властивостях об’єкта.
+// calculateSum() повертає суму цих властивостей.
+// calculateNSD() повертає результат пошуку НСД
+// calculateNSK() повертає результат пошуку НСК
 
+function Calculator2() {
 
+  this.enterData = function() {
+    this.numb_1 = +prompt('Enter number 1');
+    this.numb_2 = +prompt('Enter number 2');
+  };
 
+  this.Sum = function() {
+    return this.numb_1 + this.numb_2;
+  };
 
+  // this.multy = function() {
+  //   return this.numb_1 * this.numb_2;
+  // };
 
+  this.NSD = function() {
+    while(this.numb_2) {
+      const resalt = this.numb_2;
+      this.numb_2 = this.numb_1 % this.numb_2;
+      this.numb_1 = resalt;
+    }
+    return this.numb_1;
+  };
 
+  /*this.NSK = function() {
+    Свідомо видалила частину коду, бо зовсім не розумію чого не виходило написати саме цю частину коду :(
+ }*/
+ 
+}
 
+let calculator2 = new Calculator2();
+calculator2.enterData();
 
-
-
-
-
-
-
-
-
+alert( "Sum=" + calculator2.Sum());
+// alert( "Multy=" + calculator2.multy());
+alert( "НСД=" + calculator2.NSD());
+// alert( "НСК=" + calculator2.NSK() );
